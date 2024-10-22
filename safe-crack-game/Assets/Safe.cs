@@ -9,27 +9,20 @@ public class Safe : MonoBehaviour
 
     public int dialNumberCount = 20;
     public int dialNumber = 0;
-    bool dialMovingRight;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
+    // Spin dial if input is pressed
+    // TODO: Add physical dial input and manipulate rotation based on that number
     void Update()
     {
         SpinDial();
-        //dialSpriteTransform.Rotate(0, 0, 4);
     }
 
     void SpinDial()
     {
+        // If Input 1, rotate the dial clockwise, if past max value, reset
         if (Input.GetMouseButtonDown(0))
         {
-            dialMovingRight = true;
-            if (dialNumber < 20 && dialMovingRight)
+            if (dialNumber < 20)
             {
                 dialSpriteTransform.Rotate(0, 0, -360 / dialNumberCount);
                 dialNumber++;
@@ -41,5 +34,19 @@ public class Safe : MonoBehaviour
             }
         }
 
+        // If Input 2, rotate the dial clockwise, if past max value, reset
+        if (Input.GetMouseButtonDown(1))
+        {
+            if (dialNumber > 1)
+            {
+                dialSpriteTransform.Rotate(0, 0, 360 / dialNumberCount);
+                dialNumber--;
+            }
+            else
+            {
+                dialSpriteTransform.Rotate(0, 0, 360 / dialNumberCount);
+                dialNumber = 20;
+            }
+        }
     }
 }
