@@ -382,6 +382,7 @@ GameObject:
   - component: {fileID: 2119640812}
   - component: {fileID: 2119640811}
   - component: {fileID: 2119640813}
+  - component: {fileID: 2119640814}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -405,12 +406,33 @@ MonoBehaviour:
   correctAnswer: {fileID: 8300000, guid: 32a315aafb345264293994d936692251, type: 3}
   closeAnswer: {fileID: 8300000, guid: dffcb929dce71774f84b45f472e61a8b, type: 3}
   wrongAnswer: {fileID: 8300000, guid: 7e79405501a66694d85ccbd91f340b42, type: 3}
-  voiceClips: []
+  voiceClips:
+  - {fileID: 8300000, guid: dacec1ca76d50de47af41174d42b99f7, type: 3}
+  - {fileID: 8300000, guid: 49f26998177a7ae448f95f75578ff843, type: 3}
+  - {fileID: 8300000, guid: 6b711642fe232e9409087e81b512bb98, type: 3}
+  - {fileID: 8300000, guid: 424d444e59c57a1489ac257bf06d749f, type: 3}
+  - {fileID: 8300000, guid: cd8cba966f72ecc49aba105db5fa8cff, type: 3}
+  - {fileID: 8300000, guid: 8c87c41c9aba4fb49abbcb89d4fabc3e, type: 3}
+  - {fileID: 8300000, guid: ad8a7bd7fc2600e459b5cf7ad940799d, type: 3}
+  - {fileID: 8300000, guid: 95596b0bcea5d4f41bdb95ca8e4646d8, type: 3}
+  - {fileID: 8300000, guid: 5f3912646ada2d447a5081613b3aacdc, type: 3}
+  - {fileID: 8300000, guid: 0dfb0b7e5ccfb0046849f4aa5b3d73a8, type: 3}
+  - {fileID: 8300000, guid: fe7b2c77828da844d899e10edf6d1647, type: 3}
+  - {fileID: 8300000, guid: 766f0b2e1cf846d4c87cfd83e3a25044, type: 3}
+  - {fileID: 8300000, guid: 900b55582f80ba9468158f4ae80f868d, type: 3}
+  - {fileID: 8300000, guid: 65714bf1a2d2761418b4283f6531a8f9, type: 3}
+  - {fileID: 8300000, guid: d30fb4ee643b8af4daf107dfc114119c, type: 3}
+  - {fileID: 8300000, guid: f5fc7f1f3da9dcd408040f4f8dfcfbe6, type: 3}
+  - {fileID: 8300000, guid: b3c484340d5dd6f4bb70c704f46972a7, type: 3}
+  - {fileID: 8300000, guid: dbd9d74a7fe2ee647be95d823fd283b0, type: 3}
+  - {fileID: 8300000, guid: 322b27f41dea4f34999f4322ae00248b, type: 3}
+  - {fileID: 8300000, guid: 0f74105a6c591df4abaae208110ecb64, type: 3}
   lightObject: {fileID: 1780339529}
   safeObject: {fileID: 1237357420}
   selectionButtonObject: {fileID: 253695569}
-  numberOptions: 010000000c0000000f00000014000000090000000300000005000000030000000300000003000000
-  targetNumbers: 010000000900000003000000
+  timerObject: {fileID: 0}
+  numberOptions: 00000000050000000a0000000f00000014000000190000001e00000023000000280000002d00000032000000370000003c00000041000000460000004b00000050000000550000005a0000005f00000064000000
+  targetNumbers: 000000000000000000000000
 --- !u!4 &2119640812
 Transform:
   m_ObjectHideFlags: 0
@@ -522,6 +544,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2119640814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119640810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e1339cdcf4432745b3cc1d1dd6ffc01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTime: 120
+  startTimer: 0
 --- !u!1001 &3597403517058502787
 PrefabInstance:
   m_ObjectHideFlags: 0

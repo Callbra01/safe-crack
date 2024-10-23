@@ -10,12 +10,16 @@ public class GameManager : MonoBehaviour
     public AudioClip closeAnswer;
     public AudioClip wrongAnswer;
     public AudioClip[] voiceClips;
+
     public GameObject lightObject;
     public GameObject safeObject;
     public GameObject selectionButtonObject;
+
     CustomLight lightComponent;
     Safe safeComponent;
     SelectionButton selectionButtonComponent;
+    CustomTimer timerComponent;
+
     public int[] numberOptions;
     public int[] targetNumbers;
     int activeLights = 0;
@@ -28,6 +32,7 @@ public class GameManager : MonoBehaviour
         lightComponent = lightObject.GetComponent<CustomLight>();
         safeComponent = safeObject.GetComponent<Safe>();
         selectionButtonComponent = selectionButtonObject.GetComponent<SelectionButton>();
+        timerComponent = GetComponent<CustomTimer>();
 
         AudioSource.volume = 0.4f;
     }
