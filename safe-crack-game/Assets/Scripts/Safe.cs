@@ -6,6 +6,10 @@ using UnityEngine;
 public class Safe : MonoBehaviour
 {
     public Transform dialSpriteTransform;
+    public AudioSource audioSource;
+    public AudioClip normalSafeClick;
+    public AudioClip safeClick;
+    public float audioVolume = 0.4f;
 
     // Max dial count
     // Current dial count
@@ -17,6 +21,12 @@ public class Safe : MonoBehaviour
     void Update()
     {
         SpinDial();
+        HandleAudio();
+    }
+
+    void HandleAudio()
+    {
+        audioSource.volume = audioVolume;
     }
 
     void SpinDial()
@@ -24,6 +34,8 @@ public class Safe : MonoBehaviour
         // If Input 1, rotate the dial clockwise, if past max value, reset
         if (Input.GetMouseButtonDown(0))
         {
+            audioSource.PlayOneShot(normalSafeClick);
+            
             if (dialNumber < dialNumberCount)
             {
                 dialSpriteTransform.Rotate(0, 0, -360 / dialNumberCount);
@@ -39,6 +51,7 @@ public class Safe : MonoBehaviour
         // If Input 2, rotate the dial clockwise, if past max value, reset
         if (Input.GetMouseButtonDown(1))
         {
+            audioSource.PlayOneShot(normalSafeClick);
             if (dialNumber > 1)
             {
                 dialSpriteTransform.Rotate(0, 0, 360 / dialNumberCount);
