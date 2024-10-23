@@ -12,8 +12,6 @@ public class Safe : MonoBehaviour
     public int dialNumberCount = 20;
     public int dialNumber = 0;
 
-
-
     // Spin dial if input is pressed
     // TODO: Add physical dial input and manipulate rotation based on that number
     void Update()

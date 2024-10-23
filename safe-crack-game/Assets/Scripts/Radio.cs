@@ -38,7 +38,6 @@ public class Radio : MonoBehaviour
                 frequencyNeedleTransform.Translate(-tuneSpeed, 0, 0);
                 currentFreqValue -= tuneSpeed;
             }
-            
         }
         else if (Input.GetKeyDown(KeyCode.E))
         {
