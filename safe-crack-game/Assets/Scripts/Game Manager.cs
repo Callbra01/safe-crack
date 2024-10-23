@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     Safe safeComponent;
     SelectionButton selectionButtonComponent;
     CustomTimer timerComponent;
+    DEBUGMENU DEBUGMENUVAR;
 
     public int[] numberOptions;
     public int[] targetNumbers;
@@ -33,12 +34,20 @@ public class GameManager : MonoBehaviour
         safeComponent = safeObject.GetComponent<Safe>();
         selectionButtonComponent = selectionButtonObject.GetComponent<SelectionButton>();
         timerComponent = GetComponent<CustomTimer>();
+        DEBUGMENUVAR = GetComponent<DEBUGMENU>();
 
         AudioSource.volume = 0.4f;
     }
 
     void Update()
     {
+
+        DEBUGMENUVAR.currKnobPos = safeComponent.dialNumber;
+        DEBUGMENUVAR.currentTargetPos = targetNumbers;
+        DEBUGMENUVAR.timeRemaining = timerComponent.targetTime;
+        DEBUGMENUVAR.currLights = activeLights;
+
+
         if (Input.GetKeyDown(KeyCode.Z))
         {
             UpdateTargetNumbers();
