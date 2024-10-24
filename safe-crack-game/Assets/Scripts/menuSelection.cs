@@ -14,11 +14,15 @@ public class menuSelection : MonoBehaviour
 
     public SceneManagerScript customSceneManager;
 
+    public AudioSource audioSource;
+    public AudioClip clip;
+
     int currentSelection = 0;
 
     void Setup()
     {
         //startImage = startButton.GetComponent<Image>();
+        audioSource.volume = 0.4f;
     }
     // Update is called once per frame
     void Update()
@@ -29,6 +33,10 @@ public class menuSelection : MonoBehaviour
 
     void HandleCurrentSelection()
     {
+        if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.E))
+        {
+            audioSource.PlayOneShot(clip);
+        }
         if (currentSelection == 0)
         {
             startButtonImage.enabled = true;

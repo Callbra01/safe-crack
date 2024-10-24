@@ -20,12 +20,15 @@ public class GameManager : MonoBehaviour
     SelectionButton selectionButtonComponent;
     CustomTimer timerComponent;
     DEBUGMENU DEBUGMENUVAR;
+    public SceneManagerScript sms;
 
     public int[] numberOptions;
     public int[] targetNumbers;
     int activeLights = 0;
 
-    int currentSafeNumber = 0;
+    public int currentSafeNumber = 0;
+    public bool endlessMode = true;
+    public int safesCracked = 0;
     
     void Start()
     {
@@ -48,26 +51,12 @@ public class GameManager : MonoBehaviour
         DEBUGMENUVAR.currLights = activeLights;
 
 
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            UpdateTargetNumbers();
-        }
-
         if (activeLights != lightComponent.activeLights)
         {
             activeLights = lightComponent.activeLights;
         }
 
         CheckForSelection();
-
-        if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Q))
-        {
-            if (safeComponent.dialNumber == targetNumbers[currentSafeNumber])
-            {
-                safeComponent.audioSource.PlayOneShot(safeComponent.safeClick);
-            }
-        }
-
     }
 
     void UpdateTargetNumbers()
@@ -92,9 +81,10 @@ public class GameManager : MonoBehaviour
     void CheckForSelection()
     {
         // If current safe number is as large as targetNumbers.length, all correct inputs have been done
-        if (currentSafeNumber >= targetNumbers.Length)
+        if (currentSafeNumber >= targetNumbers.Length && endlessMode)
         {
             currentSafeNumber = 0;
+            safesCracked++;
             UpdateTargetNumbers();
             lightComponent.activeLights = 0;
         }
@@ -119,17 +109,27 @@ public class GameManager : MonoBehaviour
         lightComponent.activeLights += 1;
         selectionButtonComponent.ResetSelection();
         AudioSource.PlayOneShot(correctAnswer);
-        currentSafeNumber++;
+        if (endlessMode)
+        {
+            currentSafeNumber++;
+        }
+        else
+        {
+            if (currentSafeNumber < targetNumbers.Length -1)
+            {
+                currentSafeNumber++;
+            }
+            else if (currentSafeNumber == targetNumbers.Length -1)
+            {
+                sms.LoadScene("WinScreen");
+            }
+        }
+
     }
 
     void HandleWrongSelection()
     {
         selectionButtonComponent.ResetSelection();
         AudioSource.PlayOneShot(wrongAnswer);
-    }
-
-    void SelectVoiceClips()
-    {
-
     }
 }

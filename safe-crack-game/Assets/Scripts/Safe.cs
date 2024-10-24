@@ -5,6 +5,7 @@ using UnityEngine;
 // WB-CALLBRA01
 public class Safe : MonoBehaviour
 {
+    public GameManager gm;
     public Transform dialSpriteTransform;
     public AudioSource audioSource;
     public AudioClip normalSafeClick;
@@ -34,8 +35,15 @@ public class Safe : MonoBehaviour
         // If Input 1, rotate the dial clockwise, if past max value, reset
         if (Input.GetKeyDown(KeyCode.E))
         {
-            audioSource.PlayOneShot(normalSafeClick);
-            
+            if (dialNumber + 5 == gm.targetNumbers[gm.currentSafeNumber])
+            {
+                audioSource.PlayOneShot(safeClick);
+            }
+            else
+            {
+                audioSource.PlayOneShot(normalSafeClick);
+            }
+
             if (dialNumber < 100)
             {
                 dialSpriteTransform.Rotate(0, 0, -360 / dialNumberCount);
@@ -51,7 +59,16 @@ public class Safe : MonoBehaviour
         // If Input 2, rotate the dial clockwise, if past max value, reset
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            audioSource.PlayOneShot(normalSafeClick);
+            if (dialNumber - 5 == gm.targetNumbers[gm.currentSafeNumber])
+            {
+                audioSource.PlayOneShot(safeClick);
+            }
+            else
+            {
+                audioSource.PlayOneShot(normalSafeClick);
+            }
+
+
             if (dialNumber > 5)
             {
                 dialSpriteTransform.Rotate(0, 0, 360 / dialNumberCount);
