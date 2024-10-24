@@ -12,7 +12,7 @@ public class DEBUGMENU : MonoBehaviour
 
     public void OnGUI()
     {
-        myStyle.fontSize = 50;
+        myStyle.fontSize = 30;
         GUI.color = Color.white;
         GUI.Label(new Rect(800, 10, 260, 700), "DEBUG MENU", myStyle);
 
@@ -29,5 +29,6 @@ public class DEBUGMENU : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
     }
 }

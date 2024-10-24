@@ -13,7 +13,6 @@ public class SelectionButton : MonoBehaviour
     void Update()
     {
         HandleSelection();
-
     }
 
     void HandleSelection()

@@ -424,9 +424,8 @@ MonoBehaviour:
   numberOptions: 050000000a0000000f00000014000000190000001e00000023000000280000002d00000032000000370000003c00000041000000460000004b00000050000000550000005a0000005f00000064000000
   targetNumbers: 000000000000000000000000
   currentSafeNumber: 0
-  endlessMode: 0
+  endlessMode: 1
   safesCracked: 0
-  wrongSelectionCount: 0
 --- !u!4 &2119640812
 Transform:
   m_ObjectHideFlags: 0
@@ -553,7 +552,6 @@ MonoBehaviour:
   targetTime: 120
   startTimer: 1
   sms: {fileID: 2119640816}
-  isEndless: 0
 --- !u!114 &2119640815
 MonoBehaviour:
   m_ObjectHideFlags: 0

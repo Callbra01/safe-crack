@@ -27,9 +27,11 @@ public class GameManager : MonoBehaviour
     int activeLights = 0;
 
     public int currentSafeNumber = 0;
-    public bool endlessMode = true;
+    public bool endlessMode = false;
     public int safesCracked = 0;
-    
+    public int wrongSelectionCount = 0;
+
+
     void Start()
     {
         UpdateTargetNumbers();
@@ -39,11 +41,14 @@ public class GameManager : MonoBehaviour
         timerComponent = GetComponent<CustomTimer>();
         DEBUGMENUVAR = GetComponent<DEBUGMENU>();
 
+
+        timerComponent.isEndless = endlessMode;
         AudioSource.volume = 0.4f;
     }
 
     void Update()
     {
+
 
         DEBUGMENUVAR.currKnobPos = safeComponent.dialNumber;
         DEBUGMENUVAR.currentTargetPos = targetNumbers;
@@ -89,7 +94,6 @@ public class GameManager : MonoBehaviour
             lightComponent.activeLights = 0;
         }
 
-        
         if (selectionButtonComponent.playerSelected == true)
         {
             if (safeComponent.dialNumber == targetNumbers[currentSafeNumber])
@@ -124,11 +128,12 @@ public class GameManager : MonoBehaviour
                 sms.LoadScene("WinScreen");
             }
         }
-
     }
 
     void HandleWrongSelection()
     {
+        wrongSelectionCount++;
+        timerComponent.DecreaseTime(10f * wrongSelectionCount);
         selectionButtonComponent.ResetSelection();
         AudioSource.PlayOneShot(wrongAnswer);
     }

@@ -20,4 +20,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WinScreen.unity
     guid: 9a64c1a6cc29fc84c827c83a7c4b4d6c
+  - enabled: 1
+    path: Assets/Scenes/EndlessScoreScreen.unity
+    guid: 906e3eb16ffbcb943b8e1a9768be5cfd
+  - enabled: 1
+    path: Assets/Scenes/GameEndless.unity
+    guid: 353e17d7f7faae043a4d7c2a85afe230
+  - enabled: 1
+    path: Assets/Scenes/modeSelection.unity
+    guid: c54872b59ba4a584c88c870cb60453fa
   m_configObjects: {}

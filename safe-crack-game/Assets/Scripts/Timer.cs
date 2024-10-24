@@ -6,6 +6,8 @@ public class CustomTimer : MonoBehaviour
 {
     public float targetTime = 120.0f;
     public bool startTimer = false;
+    public SceneManagerScript sms;
+    public bool isEndless = false;
 
     // Update is called once per frame
     void Update()
@@ -21,18 +23,25 @@ public class CustomTimer : MonoBehaviour
         }
     }
 
-    void DecreaseTime(float amount)
+    public void DecreaseTime(float amount)
     {
         targetTime -= amount;
     }
 
-    void IncreaseTime(float amount)
+    public void IncreaseTime(float amount)
     {
         targetTime += amount;
     }
 
     void timerEnd()
     {
-        // DO STUFF
+        if (isEndless)
+        {
+            sms.LoadScene("EndlessScoreScreen");
+        }
+        else
+        {
+            sms.LoadScene("FailScreen");
+        }
     }
 }
