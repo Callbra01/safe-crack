@@ -18,7 +18,7 @@ public class SelectionButton : MonoBehaviour
 
     void HandleSelection()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && playerSelected == false)
+        if (Input.GetKeyDown(KeyCode.W) && playerSelected == false)
         {
             playerSelected = true;
             buttonTransform.Translate(-0.13f, 0, 0);

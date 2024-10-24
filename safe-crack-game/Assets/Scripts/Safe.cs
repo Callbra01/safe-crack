@@ -32,35 +32,35 @@ public class Safe : MonoBehaviour
     void SpinDial()
     {
         // If Input 1, rotate the dial clockwise, if past max value, reset
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             audioSource.PlayOneShot(normalSafeClick);
             
-            if (dialNumber < dialNumberCount)
+            if (dialNumber < 100)
             {
                 dialSpriteTransform.Rotate(0, 0, -360 / dialNumberCount);
-                dialNumber++;
+                dialNumber += 5;
             }
             else
             {
                 dialSpriteTransform.Rotate(0, 0, -360 / dialNumberCount);
-                dialNumber = 1;
+                dialNumber = 5;
             }
         }
 
         // If Input 2, rotate the dial clockwise, if past max value, reset
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             audioSource.PlayOneShot(normalSafeClick);
-            if (dialNumber > 1)
+            if (dialNumber > 5)
             {
                 dialSpriteTransform.Rotate(0, 0, 360 / dialNumberCount);
-                dialNumber--;
+                dialNumber -= 5;
             }
             else
             {
                 dialSpriteTransform.Rotate(0, 0, 360 / dialNumberCount);
-                dialNumber = dialNumberCount;
+                dialNumber = 100;
             }
         }
     }

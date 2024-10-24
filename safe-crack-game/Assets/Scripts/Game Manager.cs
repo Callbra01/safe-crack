@@ -59,6 +59,15 @@ public class GameManager : MonoBehaviour
         }
 
         CheckForSelection();
+
+        if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Q))
+        {
+            if (safeComponent.dialNumber == targetNumbers[currentSafeNumber])
+            {
+                safeComponent.audioSource.PlayOneShot(safeComponent.safeClick);
+            }
+        }
+
     }
 
     void UpdateTargetNumbers()
