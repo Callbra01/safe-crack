@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,11 +10,15 @@ public class DEBUGMENU : MonoBehaviour
     public int[] currentTargetPos = {0, 0, 0};
     public int currLights;
     public float timeRemaining;
+    string returnString = string.Empty;
+    public bool isEndless = false;
+    public GameManager gm;
 
     public void OnGUI()
     {
         myStyle.fontSize = 30;
         GUI.color = Color.white;
+        /*
         GUI.Label(new Rect(800, 10, 260, 700), "DEBUG MENU", myStyle);
 
         GUI.Label(new Rect(800, 50, 260, 700), $"CURR. KNOB POS: {currKnobPos}", myStyle);
@@ -23,12 +28,15 @@ public class DEBUGMENU : MonoBehaviour
         GUI.Label(new Rect(800, 150, 260, 700), $"CURR. LIGHTS: {currLights}", myStyle);
 
         GUI.Label(new Rect(800, 200, 260, 700), $"TIME REMAIN:: {timeRemaining}", myStyle);
+        */
 
+        GUI.Label(new Rect(800, 10, 260, 700), $"TIME LEFT: {TimeSpan.FromSeconds(Mathf.Floor(timeRemaining))}", myStyle);
+
+        if (isEndless)
+        {
+            GUI.Label(new Rect(800, 40, 260, 700), $"CRACKED SAFES: {gm.safesCracked}", myStyle);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
 
-    }
 }

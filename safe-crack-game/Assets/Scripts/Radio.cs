@@ -19,7 +19,7 @@ public class Radio : MonoBehaviour
     public float targetFrequency = 1f;
 
     public AudioSource staticSource;
-    public float staticClipMaxVolume = 0.4f;
+    public float staticClipMaxVolume = 1.0f;
 
 
     void Update()

@@ -3,16 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ModeSelection : MonoBehaviour
+public class normalEndScreen : MonoBehaviour
 {
+    public Image playAgainImage;
+    public Image exitImage;
 
-    public Image normalButtonImage;
-    public Image endlessButtonImage;
+    public Button playAgainButton;
+    public Button exitButton;
 
-    public Button normalButton;
-    public Button endlessButton;
-
-    public SceneManagerScript customSceneManager;
+    public SceneManagerScript sms;
 
     public AudioSource audioSource;
     public AudioClip clip;
@@ -21,9 +20,9 @@ public class ModeSelection : MonoBehaviour
 
     void Setup()
     {
-        //normalImage = normalButton.GetComponent<Image>();
         audioSource.volume = 1.0f;
     }
+
     // Update is called once per frame
     void Update()
     {
@@ -39,24 +38,24 @@ public class ModeSelection : MonoBehaviour
         }
         if (currentSelection == 0)
         {
-            normalButtonImage.enabled = true;
-            endlessButtonImage.enabled = false;
+            playAgainImage.enabled = true;
+            exitImage.enabled = false;
         }
         else if (currentSelection == 1)
         {
-            normalButtonImage.enabled = false;
-            endlessButtonImage.enabled = true;
+            playAgainImage.enabled = false;
+            exitImage.enabled = true;
         }
 
         if (Input.GetKeyDown(KeyCode.W))
         {
             if (currentSelection == 0)
             {
-                customSceneManager.LoadScene("Game");
+                sms.LoadScene("modeSelection");
             }
             else if (currentSelection == 1)
             {
-                customSceneManager.LoadScene("GameEndless");
+                Application.Quit();
             }
         }
     }

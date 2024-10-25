@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
 
 
         timerComponent.isEndless = endlessMode;
-        AudioSource.volume = 0.4f;
+        AudioSource.volume = 1f;
     }
 
     void Update()

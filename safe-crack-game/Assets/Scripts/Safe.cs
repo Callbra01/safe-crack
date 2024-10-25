@@ -10,7 +10,7 @@ public class Safe : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip normalSafeClick;
     public AudioClip safeClick;
-    public float audioVolume = 0.4f;
+    public float audioVolume = 1.0f;
 
     // Max dial count
     // Current dial count
@@ -67,7 +67,6 @@ public class Safe : MonoBehaviour
             {
                 audioSource.PlayOneShot(normalSafeClick);
             }
-
 
             if (dialNumber > 5)
             {

@@ -22,7 +22,7 @@ public class menuSelection : MonoBehaviour
     void Setup()
     {
         //startImage = startButton.GetComponent<Image>();
-        audioSource.volume = 0.4f;
+        audioSource.volume = 1.0f;
     }
     // Update is called once per frame
     void Update()
