@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class DEBUGMENU : MonoBehaviour
 {
-    GUIStyle myStyle = new GUIStyle();
+    public GUIStyle myStyle = new GUIStyle();
     public int currKnobPos;
     public int[] currentTargetPos = {0, 0, 0};
     public int currLights;
@@ -13,6 +13,8 @@ public class DEBUGMENU : MonoBehaviour
     string returnString = string.Empty;
     public bool isEndless = false;
     public GameManager gm;
+    public bool isScoreScreen = false;
+    public float timeDone = 0f;
 
     public void OnGUI()
     {
@@ -30,13 +32,31 @@ public class DEBUGMENU : MonoBehaviour
         GUI.Label(new Rect(800, 200, 260, 700), $"TIME REMAIN:: {timeRemaining}", myStyle);
         */
 
-        GUI.Label(new Rect(800, 10, 260, 700), $"TIME LEFT: {TimeSpan.FromSeconds(Mathf.Floor(timeRemaining))}", myStyle);
-
-        if (isEndless)
+        if (isScoreScreen == false)
         {
-            GUI.Label(new Rect(800, 40, 260, 700), $"CRACKED SAFES: {gm.safesCracked}", myStyle);
+            myStyle.fontSize = 30;
+            GUI.Label(new Rect(800, 10, 260, 700), $"TIME LEFT: {TimeSpan.FromSeconds(Mathf.Floor(timeRemaining))}", myStyle);
+
+            if (isEndless)
+            {
+                myStyle.fontSize = 30;
+                GUI.Label(new Rect(800, 40, 260, 700), $"CRACKED SAFES: {gm.safesCracked}", myStyle);
+            }
+        }
+        else
+        {
+            myStyle.fontSize = 60;
+            int playerScore = PlayerPrefs.GetInt("safesCracked");
+
+            if (playerScore == 1)
+            {
+                GUI.Label(new Rect(250, 120, 260, 260), $"YOU CRACKED {playerScore} SAFE!!", myStyle);
+            }
+            else
+            {
+                GUI.Label(new Rect(250, 120, 260, 260), $"YOU CRACKED {playerScore} SAFES!!", myStyle);
+            }
+            
         }
     }
-
-
 }

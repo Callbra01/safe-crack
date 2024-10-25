@@ -48,13 +48,12 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-
-
         DEBUGMENUVAR.currKnobPos = safeComponent.dialNumber;
         DEBUGMENUVAR.currentTargetPos = targetNumbers;
         DEBUGMENUVAR.timeRemaining = timerComponent.targetTime;
         DEBUGMENUVAR.currLights = activeLights;
-
+        //DEBUGMENUVAR.timeDone = timerComponent.targetTime;
+        PlayerPrefs.SetInt("safesCracked", safesCracked);
 
         if (activeLights != lightComponent.activeLights)
         {
